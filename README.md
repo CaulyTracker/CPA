@@ -15,6 +15,7 @@ Cauly CPA 광고 가이드
 ### 목차
 - [연동 절차](#연동-절차)
 - [연동 상세](#연동-상세)
+	- [랜딩 페이지](#랜딩-페이지)
 	- [전환 완료 페이지](#전환-완료-페이지)
 		- 스크립트 삽입
 
@@ -28,7 +29,8 @@ Cauly CPA 광고 가이드
 
 
 ### 연동 상세
-tracker 스크립트의 삽입 위치는 아래 1군데입니다.
+tracker 스크립트의 삽입 위치는 아래 2군데입니다.
+- 랜딩 페이지
 - 전환 완료 페이지
 
 Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라고 가정하겠습니다.
@@ -36,6 +38,17 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 
 스크립트는 head 태그 보다는 body 태그 안쪽의 마지막 부분에 삽입하는 것이 좋습니다.
 
+#### 랜딩 페이지
+##### 스크립트 삽입
+```javascript
+<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+<script type="text/javascript">
+        var mTracker = new CaulyTracker();
+        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
+         mTracker.init(initData);
+         mTracker.trackEvent('OPEN');  
+</script>
+```
 
 #### 전환 완료 페이지
 ##### 스크립트 삽입
