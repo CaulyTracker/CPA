@@ -62,4 +62,3 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
           mTracker.trackEvent('CA_CONVERSION'); 
 </script>
 ```
-광고주에 따라서 CA_CONVERSION 대신 CA_APPLY, CA_REGISTER 등으로 확장해서 사용이 가능합니다.
