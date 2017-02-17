@@ -15,11 +15,16 @@ Cauly CPA 광고 가이드
 ### 목차
 - [연동 절차](#연동-절차)
 - [연동 상세](#연동-상세)
-	- [랜딩 페이지](#랜딩-페이지)
-		- 스크립트 삽입
-	- [전환 완료 페이지](#전환-완료-페이지)
-		- 스크립트 삽입
-
+	- [일반](#일반)		
+		- [랜딩 페이지](#랜딩-페이지)
+			- 스크립트 삽입
+		- [전환 완료 페이지](#전환-완료-페이지)
+			- 스크립트 삽입
+	- [사전예약 캠페인](#사전예약-캠페인)
+		- [랜딩 페이지](#랜딩-페이지)
+			- 스크립트 삽입
+		- [전환 완료 페이지](#전환-완료-페이지)
+			- 스크립트 삽입
 
 ### 연동 절차
 1. Cauly 담당자 혹은 cauly@fsn.co.kr로 연락하여 Cauly CPA 광고 집행에 대해서 협의합니다.
@@ -39,26 +44,53 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 
 스크립트는 head 태그 보다는 body 태그 안쪽의 마지막 부분에 삽입하는 것이 좋습니다.
 
-#### 랜딩 페이지
-##### 스크립트 삽입
+#### 일반
+##### 랜딩 페이지
+###### 스크립트 삽입
 ```javascript
 <script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
 <script type="text/javascript">
         var mTracker = new CaulyTracker();
         var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
-         mTracker.init(initData);
-         mTracker.trackEvent('OPEN');  
+        mTracker.init(initData);
+        mTracker.trackEvent('OPEN');  
 </script>
 ```
 
-#### 전환 완료 페이지
-##### 스크립트 삽입
+##### 전환 완료 페이지
+###### 스크립트 삽입
 ```javascript
 <script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
 <script type="text/javascript">
          var mTracker = new CaulyTracker();
          var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
-          mTracker.init(initData);
-          mTracker.trackEvent('CA_CONVERSION'); 
+         mTracker.init(initData);
+         mTracker.trackEvent('CA_CONVERSION'); 
+</script>
+```
+#### 사전예약 캠페인
+##### 랜딩 페이지
+###### 스크립트 삽입
+```javascript
+<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+<script type="text/javascript">
+        var mTracker = new CaulyTracker();
+        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
+        mTracker.init(initData);
+        mTracker.trackEvent('OPEN');  
+</script>
+```
+
+##### 전환 완료 페이지
+###### 스크립트 삽입
+사전 예약의 경우 전환 완료 시, user 를 식별할 수 있는 식별자를 넣어주어야 합니다. hash 된 값이어도 괜찮습니다.
+식별자가 'aaaa' 라면
+```javascript
+<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+<script type="text/javascript">
+        var mTracker = new CaulyTracker();
+        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").setUserId('aaaa').build();
+        mTracker.init(initData);
+        mTracker.trackEvent('CA_CONVERSION');  
 </script>
 ```
