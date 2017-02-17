@@ -21,9 +21,9 @@ Cauly CPA 광고 가이드
 		- [전환 완료 페이지](#전환-완료-페이지)
 			- 스크립트 삽입
 	- [사전예약 캠페인](#사전예약-캠페인)
-		- [랜딩 페이지](#랜딩-페이지)
+		- [사전예약 랜딩 페이지](#사전예약-랜딩-페이지)
 			- 스크립트 삽입
-		- [전환 완료 페이지](#전환-완료-페이지)
+		- [사전예약 전환 완료 페이지](#사전예약-전환-완료-페이지)
 			- 스크립트 삽입
 
 ### 연동 절차
@@ -69,7 +69,7 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 </script>
 ```
 #### 사전예약 캠페인
-##### 랜딩 페이지
+##### 사전예약 랜딩 페이지
 ###### 스크립트 삽입
 ```javascript
 <script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
@@ -81,7 +81,7 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 </script>
 ```
 
-##### 전환 완료 페이지
+##### 사전예약 전환 완료 페이지
 ###### 스크립트 삽입
 사전 예약의 경우 전환 완료 시, user 를 식별할 수 있는 식별자를 넣어주어야 합니다. hash 된 값이어도 괜찮습니다.
 식별자가 'aaaa' 라면
