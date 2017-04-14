@@ -26,6 +26,16 @@ Cauly CPA 광고 가이드
 			- 스크립트 삽입
 		- [사전예약 전환 완료 페이지](#사전예약-전환-완료-페이지)
 			- 스크립트 삽입
+	- [회원가입 캠페인](#회원가입-캠페인)
+		- [회원가입 랜딩 페이지](#회원가입-랜딩-페이지)
+			- 스크립트 삽입
+		- [회원가입 전환 완료 페이지](#회원가입-전환-완료-페이지)
+			- 스크립트 삽입
+	- [CPS 캠페인](#CPS-캠페인)
+		- [CPS 랜딩 페이지](#CPS-랜딩-페이지)
+			- 스크립트 삽입
+		- [CPS 전환 완료 페이지](#CPS-전환-완료-페이지)
+			- 스크립트 삽입
 
 ### 연동 절차
 1. Cauly 담당자 혹은 cauly@fsn.co.kr로 연락하여 Cauly CPA 광고 집행에 대해서 협의합니다.
@@ -84,14 +94,91 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 
 ##### 사전예약 전환 완료 페이지
 ###### 스크립트 삽입
-사전 예약의 경우 전환 완료 시, user 를 식별할 수 있는 식별자를 넣어주어야 합니다. hash 된 값이어도 괜찮습니다. 하지만 user 식별자를 중복으로 보내서는 안됩니다. 같은 user 가 2번 이상 전환 완료했다면 최초 1번의 전환만 보내져야 합니다.
-user 식별자가 'aaaa' 라면 코드는 아래와 같습니다.
+사전 예약의 경우 전환 완료 시, user 를 식별할 수 있는 식별자를 넣어주어야 합니다. sha1 hash 된 값으로 보내는 것을 권장합니다. 그리고 user 식별자를 중복으로 보내서는 안됩니다. 같은 user 가 2번 이상 전환 완료했다면 최초 1번의 전환만 보내져야 합니다.
+user 식별자가 '01011112222' 라면 코드는 아래와 같습니다.
 ```javascript
+<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1.js" ></script>
 <script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
 <script type="text/javascript">
-        var mTracker = new CaulyTracker();
-        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").setUserId('aaaa').build();
+        var strUser = '01011112222'; 
+        var mTracker = new CaulyTracker();
+        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").setUserId(SHA1(strUser)).build();
         mTracker.init(initData);
         mTracker.trackEvent('CA_CONVERSION');  
 </script>
 ```
+
+#### 회원가입 캠페인
+##### 회원가입 랜딩 페이지
+###### 스크립트 삽입
+```javascript
+<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+<script type="text/javascript">
+        var mTracker = new CaulyTracker();
+        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
+        mTracker.init(initData);
+        mTracker.trackEvent('OPEN');  
+</script>
+```
+
+##### 회원가입 전환 완료 페이지
+###### 스크립트 삽입
+회원가입의 경우 전환 완료 시, user 를 식별할 수 있는 식별자를 넣어주어야 합니다. sha1 hash 된 값으로 보내는 것을 권장합니다. 그리고 user 식별자를 중복으로 보내서는 안됩니다. 같은 user 가 2번 이상 전환 완료했다면 최초 1번의 전환만 보내져야 합니다.
+user 식별자가 'aaaa' 라면 코드는 아래와 같습니다.
+```javascript
+<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1.js" ></script>
+<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+<script type="text/javascript">
+        var strUser = 'aaaa'; 
+        var mTracker = new CaulyTracker();
+        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").setUserId(SHA1(strUser)).build();
+        mTracker.init(initData);
+        mTracker.trackEvent('CA_CONVERSION');  
+</script>
+```
+
+#### CPS 캠페인
+##### CPS 랜딩 페이지
+###### 스크립트 삽입
+```javascript
+<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+<script type="text/javascript">
+        var mTracker = new CaulyTracker();
+        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
+        mTracker.init(initData);
+        mTracker.trackEvent('OPEN');  
+</script>
+```
+
+##### CPS 전환 완료 페이지
+###### 스크립트 삽입
+CPS 전환 완료시, 구매한 모든 상품에 대해 상품정보(상품id, 가격, 수량)를 추가해야 합니다.
+```javascript
+<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+<script type="text/javascript">
+         var mTracker = new CaulyTracker();
+         var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
+          mTracker.init(initData);
+
+          /* STAR LOOP: 구매한 모든 상품에 대해 */
+          mTracker.PurchaseEvent.addPurchase( "{$itemId}", "{$productPrice}", "{$productQuantity}");
+          /* END LOOP */
+
+          mTracker.PurchaseEvent.setOrder("{$orderId}", "{$orderPrice}");
+
+          var purchaseEvent = mTracker.PurchaseEvent.build();
+          /* 재구매 표시 시작, 재구매 표시를 위해 이 부분이 추가되었다. */
+          //purchaseEvent['purchase_type']='RE-PURCHASE';
+          /* 재구매 표시 끝 */
+          mTracker.trackEvent(purchaseEvent);
+</script>
+```
+
+| Field Name | Nullable | Description | 
+| ---------- | -------- | ----------- |
+| {$itemId} | NOT NULL | 결제된 상품 ID (상품코드). <br/>이때의 상품ID는 상품상세 페이지에서 전달한 상품ID와 동일한 것이어야 한다. |
+| {$productPrice} | NOT NULL | 결제된 상품의 가격 |
+| {$productQuantity} | NOT NULL | 결제된 상품의 갯수 |
+| {$orderId} | NOT NULL | 결제완료된 주문 ID |
+| {$orderPrice} | NOT NULL | 결제완료된 주문의 가격 |
+| {$userId} | NULL | 방문한 유저의 로그인 아이디 (optional) 법적이슈의 문제로<br/> HASH 값을 넣어주는 것이 일반적이다. |
