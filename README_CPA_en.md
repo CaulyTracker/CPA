@@ -18,15 +18,15 @@ This document describes how to integrate with Cauly Tracker When CPA campaigned.
 - [Intergration Process](#Intergration-Process)
 - [Intergration Details](#Intergration-Details)
 	- [Common](#Common)		
-      - [Landing Page](#Landing-Page)
-        -  Scripting
+      - [Landing Page](#LandingPage)
+       	- Scripting
   - [By Campaigns](#By-Campaigns)   
       - [General Conversion Completion Page](#General-Conversion-Completion-Page)   
-        - Scripting
-      - [Pre-Registration Completion Page](#Pre_Registration-Completion-Page)   
-        - Scripting   
-      - [CPS Conversion Completion Page](#CPS-Conversion-Completion-Page])   
-        - Scripting   
+      	   -  Scripting
+      - [Pre-Registration Completion Page](#Pre_Registration-Completion-Page)
+      	   - Scripting
+      - [CPS Conversion Completion Page](#CPS-Conversion-Completion-Page])
+           - Scripting   
 
 ### Intergration Process
 1. Please contact Cauly Manager or cauly@fsn.co.kr to deal with Cauly CPA Ads.
