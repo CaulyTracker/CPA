@@ -28,7 +28,7 @@ This document describes how to integrate with Cauly Tracker When CPA campaigned.
       - [CPS Conversion Completion Page](#CPS-Conversion-Completion-Page])   
         - Scripting   
 
-### Intergration-Process
+### Intergration Process
 1. Please contact Cauly Manager or cauly@fsn.co.kr to deal with Cauly CPA Ads.
 1. Track-code will be issued. 
 1. Write script guided in document into advertiser side website .
@@ -36,7 +36,7 @@ This document describes how to integrate with Cauly Tracker When CPA campaigned.
 1. After successful test, Campaign starts.
 
 
-### Intergration-Details
+### Intergration Details
 There are two places to write scripting
 - Landing Page    : Same script for all campaigns. 
 - Conversion completion Page : Differs by campaigns. 
@@ -48,7 +48,7 @@ It is best to write the script at the end of the body tag rather than the head t
 
 
 #### Common
-##### Landing-Page
+##### Landing Page
 This following script should be applied into landing page for all campaigns.
 
 ###### Scripting
