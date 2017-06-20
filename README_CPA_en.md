@@ -7,7 +7,7 @@ This document describes how to integrate with Cauly Tracker When CPA campaigned.
 
 
 ### Document version
-| version | creating date | wirter and contents |
+| version | creating date | writer and contents |
  --- | --- | --- 
 | 1.0.0 | 2017. 06. 15. | Yoon, Changju (yoonc1@fsn.co.kr) Drafting |
 
@@ -15,28 +15,28 @@ This document describes how to integrate with Cauly Tracker When CPA campaigned.
 
 
 ### Contents
-- [Intergration Process](#Intergration-Process)
-- [Intergration Details](#Intergration-Details)
+- [Integration Process](#Integration-Process)
+- [Integration Details](#Integration-Details)
 	- [Common](#Common)		
       - [Landing Page](#LandingPage)
        	- Scripting
   - [By Campaigns](#By-Campaigns)   
-      - [General Conversion Completion Page](#General-Conversion-Completion-Page)   
+      - [General Conversion Complete Page](#General-Conversion-Complete-Page)   
       	   -  Scripting
-      - [Pre-Registration Completion Page](#Pre_Registration-Completion-Page)
+      - [Pre-Registration Complete Page](#Pre_Registration-Complete-Page)
       	   - Scripting
-      - [CPS Conversion Completion Page](#CPS-Conversion-Completion-Page])
+      - [CPS Conversion Complete Page](#CPS-Conversion-Complete-Page])
            - Scripting   
 
-### Intergration Process
+### Integration Process
 1. Please contact Cauly Manager or cauly@fsn.co.kr to deal with Cauly CPA Ads.
-1. Track-code will be issued. 
-1. Write script guided in document into advertiser side website .
-1. Cauly will verify for your scripting. 
-1. After successful test, Campaign starts.
+2. Track-code will be issued. 
+3. Write script guided in document into advertiser side website .
+4. Cauly will verify your scripting. 
+5. After successful test, Campaign starts.
 
 
-### Intergration Details
+### Integration Details
 There are two places to write scripting
 - Landing Page    : Same script for all campaigns. 
 - Conversion completion Page : Differs by campaigns. 
@@ -76,8 +76,8 @@ This following script should be applied into landing page for all campaigns.
 </script>
 ```
 - - -
-##### Pre_Registration Completion Page
-For pre_registration campaigns, You must provice an identifier of user when conversion is complete.  The identifier can be a hashed value. However user identifier cannot be sended duplicately . If the same user completes the conversion more than once, only the first one should be sent. 
+##### Pre_Registration Complete Page
+For pre_registration campaigns, you must provide an user identifier when conversion is complete.  The identifier can be a hashed value. Note that the user identifier cannot be sent duplicately. If the same user completes the conversion more than once, only the first one should be sent. 
 If user identifier is 'aaa', script is like below.
 
 ###### Scripting
@@ -91,7 +91,7 @@ If user identifier is 'aaa', script is like below.
 </script>
 ```
 - - -
-##### CPS Conversion Completion Page
+##### CPS Conversion Complete Page
 Upon completion of the CPS conversion, you must add product information (product id, price, quantity) for all purchased products.
 You also need to activate the code below to display additional repurchases (disabled by default).
 
