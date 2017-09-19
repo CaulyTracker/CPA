@@ -39,6 +39,21 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 
 #### 캠페인별
 - - -
+
+
+##### 사전예약 랜딩페이지 
+
+###### 스크립트 삽입
+```javascript
+<script type="text/javascript">
+  window._paq = window._paq || [];
+  _paq.push(['track_code',"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"]);
+  _paq.push(['event_name','OPEN']);
+  _paq.push(['send_event']);
+  (function()
+  { var u="//image.cauly.co.kr/script/"; var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'caulytracker_async.js'; s.parentNode.insertBefore(g,s); })();
+</script>
+```
 ##### 사전예약 전환 완료 페이지
 사전 예약의 경우 전환 완료 시, user 를 식별할 수 있는 식별자를 넣어주어야 합니다. hash 된 값이어도 괜찮습니다. 하지만 user 식별자를 중복으로 보내서는 안됩니다. 같은 user 가 2번 이상 전환 완료했다면 최초 1번의 전환만 보내져야 합니다.
 user 식별자가 'aaaa' 라면 코드는 아래와 같습니다.
