@@ -51,12 +51,13 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 모든 캠페인의 랜딩페이지에는 공통적으로 아래의 스크립트를 적용합니다.
 ###### 스크립트 삽입
 ```javascript
-<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
 <script type="text/javascript">
-        var mTracker = new CaulyTracker();
-        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
-        mTracker.init(initData);
-        mTracker.trackEvent('OPEN');  
+  window._paq = window._paq || [];
+  _paq.push(['track_code',"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"]);
+  _paq.push(['event_name','OPEN']);
+  _paq.push(['send_event']);
+  (function()
+  { var u="//image.cauly.co.kr/script/"; var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'caulytracker_async.js'; s.parentNode.insertBefore(g,s); })();
 </script>
 ```
 
@@ -65,12 +66,17 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 ##### 일반 전환 완료 페이지
 ###### 스크립트 삽입
 ```javascript
-<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+
 <script type="text/javascript">
-         var mTracker = new CaulyTracker();
-         var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
-         mTracker.init(initData);
-         mTracker.trackEvent('CA_CONVERSION'); 
+  var strUser = '01011112222';      
+  window._paq = window._paq || [];
+  _paq.push(['track_code',"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"]);
+  _paq.push(['user_id',strUser]); 
+  _paq.push(['event_name','CA_CONVERSION']);
+  _paq.push(['send_event']);
+  (function() { var u="//image.cauly.co.kr/script/"; var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'caulytracker_async.js'; s.parentNode.insertBefore(g,s); }
+  )();
+        
 </script>
 ```
 - - -
@@ -79,12 +85,17 @@ Cauly 에서 발급한 track_code 를 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee 라�
 user 식별자가 'aaaa' 라면 코드는 아래와 같습니다.
 ###### 스크립트 삽입
 ```javascript
-<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
+<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1.js" ></script>
 <script type="text/javascript">
-        var mTracker = new CaulyTracker();
-        var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").setUserId('aaaa').build();
-        mTracker.init(initData);
-        mTracker.trackEvent('CA_CONVERSION');  
+  var strUser = '01011112222';      
+  window._paq = window._paq || [];
+  _paq.push(['track_code',"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"]);
+  _paq.push(['user_id',SHA1(strUser)]); // option
+  _paq.push(['event_name','CA_CONVERSION']);
+  _paq.push(['send_event']);
+  (function() { var u="//image.cauly.co.kr/script/"; var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'caulytracker_async.js'; s.parentNode.insertBefore(g,s); }
+  )();
+        
 </script>
 ```
 - - -
@@ -96,23 +107,23 @@ purchaseEvent['purchase_type']='RE-PURCHASE';
 ```
 ###### 스크립트 삽입
 ```javascript
-<script type="text/javascript" src="//image.cauly.co.kr/script/caulytracker.js"></script>
 <script type="text/javascript">
-         var mTracker = new CaulyTracker();
-         var initData = mTracker.InfoBuilder.setTrackCode("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").build();
-          mTracker.init(initData);
+  window._paq = window._paq || [];
+  _paq.push(['track_code',"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"]);
+  _paq.push(['user_id','{$userId}']); // option
+  _paq.push(['event_name','PURCHASE']);
+  _paq.push(['order_id','{$orderId}']);
+  _paq.push(['order_price','{$orderPrice}']);
+  var products_q = [];
 
-          /* STAR LOOP: 구매한 모든 상품에 대해 */
-          mTracker.PurchaseEvent.addPurchase( "{$itemId}", "{$productPrice}", "{$productQuantity}");
-          /* END LOOP */
+  /* STAR LOOP: 구매한 모든 상품에 대해 */
+  products_q.push({'product_id': '{$itemId}','product_price':'{$productPrice}','product_quantity':'{$productQuantity}'});
+  /* END LOOP */
 
-          mTracker.PurchaseEvent.setOrder("{$orderId}", "{$orderPrice}");
-
-          var purchaseEvent = mTracker.PurchaseEvent.build();
-          /* 재구매 표시 시작, 재구매 표시를 위해 이 부분이 추가되었다. */
-          //purchaseEvent['purchase_type']='RE-PURCHASE';
-          /* 재구매 표시 끝 */
-          mTracker.trackEvent(purchaseEvent);
+  _paq.push(['product_infos',products_q]);
+  _paq.push(['send_event']);    
+  (function(){ var u="//image.cauly.co.kr/script/"; var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'caulytracker_async.js'; s.parentNode.insertBefore(g,s); }
+)();
 </script>
 
 <script type="text/javascript">
