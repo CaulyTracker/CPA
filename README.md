@@ -107,7 +107,7 @@ user 식별자가 '01011112222' 라면 코드는 아래와 같습니다.
   var strUser = '01011112222';      
   window._paq = window._paq || [];
   _paq.push(['track_code',"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"]);
-  _paq.push(['user_id',SHA1(strUser)]); // option
+  _paq.push(['user_id',SHA1(strUser)]); 
   _paq.push(['event_name','CA_CONVERSION']);
   _paq.push(['send_event']);
   (function() { var u="//image.cauly.co.kr/script/"; var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'caulytracker_async.js'; s.parentNode.insertBefore(g,s); }
