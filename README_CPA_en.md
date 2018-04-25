@@ -89,7 +89,7 @@ If user identifier is 'aaa', script is like below.
   var strUser = '01011112222';      
   window._paq = window._paq || [];
   _paq.push(['track_code',"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"]);
-  _paq.push(['user_id',SHA1(strUser)]); // option
+  _paq.push(['user_id',SHA1(strUser)]); 
   _paq.push(['event_name','CA_CONVERSION']);
   _paq.push(['send_event']);
   (function() { var u="//image.cauly.co.kr/script/"; var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'caulytracker_async.js'; s.parentNode.insertBefore(g,s); }
@@ -110,7 +110,7 @@ purchaseEvent['purchase_type']='RE-PURCHASE';
 <script type="text/javascript">
   window._paq = window._paq || [];
   _paq.push(['track_code',"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"]);
-  _paq.push(['user_id','{$userId}']); // option
+  _paq.push(['user_id','{$userId}']); 
   _paq.push(['event_name','PURCHASE']);
   _paq.push(['order_id','{$orderId}']);
   _paq.push(['order_price','{$orderPrice}']);
@@ -139,7 +139,7 @@ _rblqueue.push(['setVar','cuid','aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee']);
 _rblqueue.push(['setVar','device','{$device}']);
 _rblqueue.push(['setVar','orderId','{$orderId}']);
 _rblqueue.push(['setVar','orderPrice','{$orderPrice}']);
-_rblqueue.push(['setVar','userId','{$userId}']);		// optional
+_rblqueue.push(['setVar','userId','{$userId}']);		
 _rblqueue.push(['track','order']);
 setTimeout(function() {
   (function(s,x){s=document.createElement('script');s.type='text/javascript';
