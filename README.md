@@ -117,7 +117,7 @@ sha1 hash 된 값으로 보내는 것을 권장합니다. 그리고 user 식별�
 같은 user 가 2번 이상 전환 완료했다면 최초 1번의 전환만 보내져야 합니다.<br/>
 user 식별자가 '01011112222' 라면 코드는 아래와 같습니다.
 ```javascript
-<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1.js" ></script>
+<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1_str.js" ></script>
 <script type="text/javascript">
   var strUser = '01011112222';      
   window._paq = window._paq || [];
@@ -152,7 +152,7 @@ sha1 hash 된 값으로 보내는 것을 권장합니다. 그리고 user 식별�
 같은 user 가 2번 이상 전환 완료했다면 최초 1번의 전환만 보내져야 합니다.<br/>
 user 식별자가 'aaaa' 라면 코드는 아래와 같습니다.
 ```javascript
-<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1.js" ></script>
+<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1_str.js" ></script>
 <script type="text/javascript">
   var strUser = '01011112222';      
   window._paq = window._paq || [];
