@@ -84,7 +84,7 @@ If user identifier is 'aaa', script is like below.
 
 ###### Scripting
 ```javascript
-<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1.js" ></script>
+<script type="text/javascript" src="//image.cauly.co.kr/cpa/util_sha1_str.js" ></script>
 <script type="text/javascript">
   var strUser = '01011112222';      
   window._paq = window._paq || [];
